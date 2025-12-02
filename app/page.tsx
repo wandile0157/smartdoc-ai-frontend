@@ -1,65 +1,153 @@
-import Image from "next/image";
+// app/page.tsx
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { FileText, CheckCircle, Shield, Zap } from 'lucide-react';
 
-export default function Home() {
+export default function HomePage() {
+  const features = [
+    {
+      icon: FileText,
+      title: 'Legal Document Analysis',
+      description:
+        'Analyze contracts, agreements, and legal documents. Extract parties, dates, amounts, and assess risks.',
+    },
+    {
+      icon: Shield,
+      title: 'Risk Assessment',
+      description:
+        'Automatic risk scoring based on legal terms and clauses. Identify potential issues before they become problems.',
+    },
+    {
+      icon: Zap,
+      title: 'Instant Insights',
+      description:
+        'Get comprehensive analysis in seconds. Save time and make informed decisions faster.',
+    },
+    {
+      icon: CheckCircle,
+      title: 'South African Context',
+      description:
+        'Built for SA businesses. Recognizes Pty Ltd, CC companies, Rands (R), and SA legal frameworks.',
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Header */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-2">
+              <div className="bg-blue-600 text-white p-2 rounded-lg">
+                <FileText className="h-6 w-6" />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-gray-900">
+                  SmartDoc AI
+                </h1>
+                <p className="text-xs text-gray-500">Powered by CenturionAI</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Link href="/login">
+                <Button variant="ghost">Login</Button>
+              </Link>
+              <Link href="/signup">
+                <Button>Get Started</Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center">
+          <h2 className="text-5xl font-bold text-gray-900 mb-6">
+            AI-Powered Legal Document Analysis
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Transform how you analyze legal documents. Get instant insights,
+            risk assessments, and comprehensive analysis for South African
+            businesses.
+          </p>
+          <div className="flex justify-center space-x-4">
+            <Link href="/signup">
+              <Button size="lg" className="text-lg px-8">
+                Start Analyzing Free
+              </Button>
+            </Link>
+            <Link href="/login">
+              <Button size="lg" variant="outline" className="text-lg px-8">
+                Try Demo
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-16">
+          <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            Why SmartDoc AI?
+          </h3>
+          <p className="text-lg text-gray-600">
+            Built specifically for South African businesses and legal
+            professionals
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+            >
+              <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                <feature.icon className="h-6 w-6 text-blue-600" />
+              </div>
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                {feature.title}
+              </h4>
+              <p className="text-gray-600 text-sm">{feature.description}</p>
+            </div>
+          ))}
         </div>
-      </main>
+      </section>
+
+      {/* CTA Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="bg-blue-600 rounded-2xl p-12 text-center text-white">
+          <h3 className="text-3xl font-bold mb-4">
+            Ready to Transform Your Document Analysis?
+          </h3>
+          <p className="text-xl mb-8 opacity-90">
+            Join South African businesses using SmartDoc AI today
+          </p>
+          <Link href="/signup">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="text-lg px-8 bg-white text-blue-600 hover:bg-gray-100"
+            >
+              Get Started - It's Free
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="text-center text-gray-600">
+            <p>
+              © 2024 SmartDoc AI by CenturionAI. Built for South African
+              Businesses.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
