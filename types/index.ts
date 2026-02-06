@@ -75,3 +75,22 @@ export type LegalAnalysisResponse = {
 
   text_statistics: any;
 };
+
+// ✅ ADDED: needed by app/(dashboard)/feedback-analyzer/page.tsx
+export type BasicAnalysisResponse = {
+  success: boolean;
+  message?: string;
+  timestamp?: string;
+
+  analysis_id: string;
+  processing_time_ms: number;
+
+  statistics: {
+    total_words: number;
+    unique_words: number;
+    average_word_length: number;
+    total_characters: number;
+  };
+
+  top_words: Record<string, number>;
+};
