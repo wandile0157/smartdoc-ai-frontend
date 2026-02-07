@@ -5,6 +5,17 @@ export type RiskAssessment = {
   high_risk_terms_found: number;
   medium_risk_terms_found: number;
   total_risk_terms: number;
+
+  // ✅ optional fields used by UI (components/analysis/risk-assessment.tsx)
+  description?: string;
+
+  keywords_found?: {
+    high_risk?: string[];
+    medium_risk?: string[];
+    administrative?: string[];
+  };
+
+  recommendations?: string[];
 };
 
 export type DocumentInfo = {
