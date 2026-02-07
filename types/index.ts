@@ -1,3 +1,6 @@
+// ✅ Added to match backend enum + fix import in lib/utils/formatters.ts
+export type RiskLevel = 'Low Risk' | 'Medium Risk' | 'High Risk';
+
 export type RiskAssessment = {
   risk_score: number;
   risk_level: string;
